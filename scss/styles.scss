@@ -1,0 +1,366 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
+@import "variables";
+@import "resets";
+
+html {
+  font-family: "Space Grotesk", serif;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  font-family: "Space Grotesk", serif;
+  min-height: 100vh;
+}
+
+.main {
+  height: 100%;
+  min-width: 100vw;
+  // max-width: 500px;
+
+  .background {
+    position: relative;
+    background: url(/images/bg-main-mobile.png) no-repeat;
+    background-size: cover;
+    height: 220px;
+    &__cardBack {
+      position: absolute;
+      max-width: 100%;
+      width: 280px;
+      top: 30px;
+      right: 20px;
+      // font-family: inherit;
+
+      .cardBack__text {
+        position: absolute;
+        color: $white;
+        z-index: 5;
+        top: 65px;
+        right: 30px;
+        font-family: inherit;
+        font-size: 14px;
+      }
+    }
+
+    &__cardFront {
+      position: absolute;
+      bottom: -46px;
+      left: 20px;
+      width: 280px;
+      height: 150px;
+      background: url(/images/bg-card-front.png) no-repeat center top;
+      border-radius: 5px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-family: inherit;
+
+      .cardFront__logo {
+        width: 20%;
+        padding-bottom: 20px;
+      }
+
+      .cardFront__number {
+        p {
+          font-family: inherit;
+          color: $white;
+          font-size: 18px;
+        }
+      }
+      .cardFront__info {
+        p {
+          font-family: inherit;
+          font-size: 12px;
+        }
+        display: flex;
+        justify-content: space-between;
+        color: $white;
+
+        .expire {
+          display: flex;
+        }
+      }
+    }
+  }
+
+  .form {
+    padding: 80px 20px 20px 20px;
+    position: relative;
+    // border:1px solid black;
+
+    @mixin padding {
+      padding: 10px;
+      border: 1px solid $lightGreyViolet;
+      border-radius: 7px;
+    }
+
+    &__input {
+      display: flex;
+      flex-direction: column;
+
+      .form__name {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .form__number_group {
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        font-size: 13px;
+      }
+
+      input {
+        margin: 5px 0px 10px 0px;
+        @include padding;
+
+        &::placeholder {
+          color: $darkGreyViolet;
+        }
+
+        &:focus {
+          outline: 2px solid $darkGreyViolet;
+        }
+      }
+
+      .form__button {
+        button {
+          font-size: 17px;
+          width: 100%;
+          @include padding;
+          border: 0;
+          background: $veryDarkViolet;
+          color: $white;
+          padding: 13px;
+          margin-top: 10px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    &__expire {
+      display: flex;
+      // flex-direction: column;
+      //   border: 2px solid red;
+      .date {
+        display: flex;
+        flex-direction: column;
+        // border: 1px solid black;
+      }
+
+      .month {
+        margin-right: 10px;
+      }
+      .cvc {
+        display: flex;
+        flex-direction: column;
+        width: auto;
+      }
+
+      &__container {
+        display: flex;
+        flex-direction: column;
+      }
+
+      #expire__month {
+        width: 48%;
+        // margin-right:10px;
+      }
+
+      #expire__year {
+        width: 48%;
+      }
+
+      #expire__cvc {
+        width: 170px;
+      }
+    }
+  }
+}
+
+.thanks {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20px 0 10px 0;
+  background-color: $white;
+  display: grid;
+  place-items: center;
+  display: none;
+
+  img {
+    padding: 30px 0;
+  }
+
+  h1,
+  p {
+    font-family: inherit;
+  }
+
+  h1 {
+    font-size: 30px;
+    font-weight: normal;
+    letter-spacing: 3px;
+    color: $veryDarkViolet;
+  }
+
+  p {
+    margin: 15px 0 25px 0;
+    color: $darkGreyViolet;
+    font-size: 18px;
+  }
+
+  button {
+    width: 85%;
+    padding: 13px;
+    border: 0;
+    background-color: $veryDarkViolet;
+    color: $white;
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+}
+
+.thanks.show {
+  display: grid;
+}
+
+small {
+  display: none;
+}
+small.show {
+  display: block;
+}
+@media screen and (min-width: 1400px) {
+  .main {
+    display: flex;
+    min-height: 100vh;
+    // flex-direction: column;
+
+    .background {
+      flex-grow: 0.5;
+      height: 100vh;
+      background-image: url(/images/bg-main-desktop.png);
+      background-size: cover;
+      border: 2px solid black;
+
+      &__cardBack {
+        width: 100%;
+        right: -260px;
+        top: 480px;
+
+        .cardBack__text {
+          position: absolute;
+          top: 110px;
+          right: 140px;
+          color: $white;
+          z-index: 5;
+          font-family: inherit;
+        }
+      }
+
+      &__cardFront {
+        top: 200px;
+        left: 170px;
+        width: 450px;
+        height: 245px;
+      }
+
+      #number {
+        font-size: 35px;
+      }
+
+      #name {
+        font-size: 18px;
+      }
+      .expire {
+        font-size: 15px;
+      }
+
+      #expire-month {
+        font-size: 18px;
+      }
+      #expire-year {
+        font-size: 18px;
+      }
+    }
+
+    .form {
+      // border: 2px solid black;
+      flex-grow: 0.5;
+      display: grid;
+      place-items: center;
+
+      &__input {
+        max-width: 350px;
+
+        label {
+          margin-top: 20px;
+        }
+
+        .form__button {
+          margin-top: 20px;
+        }
+      }
+
+      .thanks {
+        width: 450px;
+        height: 430px;
+        left: 230px;
+        top: 240px;
+
+        button {
+          width: 80%;
+          margin-bottom: 30px;
+        }
+
+        h1 {
+          margin-bottom: -80px;
+        }
+        p {
+          margin-bottom: -40px;
+        }
+
+        img {
+          margin-bottom: -70px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .main {
+    .background {
+      max-width: 900px;
+
+      &__cardBack {
+        right: -700px;
+        top: 600px;
+
+        .cardBack__text {
+          top: 110px;
+          right: 500px;
+        }
+      }
+
+      &__cardFront {
+        left: 570px;
+        top: 320px;
+      }
+    }
+
+    .form {
+      .thanks {
+        left: 455px;
+        top: 440px;
+      }
+    }
+  }
+}
