@@ -47,8 +47,8 @@ Mobile version Completed
 
 ### Links
 
-- Solution URL: [Code on GitHub](https://github.com/AlexandruStefanGherhes/Notification-Page.git)
-- Live Site URL: [Vercel Live URL](https://notification-page-psi.vercel.app/)
+- Solution URL: [Code on GitHub](https://github.com/AlexandruStefanGherhes/Interactive-card-details-form.git)
+- Live Site URL: [Vercel Live URL](https://interactive-card-details-form-peach.vercel.app/)
 
 ## My process
 
